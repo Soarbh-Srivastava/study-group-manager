@@ -11,8 +11,6 @@ To get started with the project, follow these steps:
 3. Install dependencies: 
 Here's a consolidated README.md file for your study group manager project:
 
-markdown
-Copy code
 # Study Group Manager
 
 Welcome to the Study Group Manager project! This web application allows users to upload PDF notes and join different groups to access shared notes.
