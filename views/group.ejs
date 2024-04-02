@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Groups</title>
+  </head>
+  <!-- Logout button -->
+  <h1>Study Groups</h1>
+  <form id="logoutForm" action="/logout?logout=true" method="post">
+    <button type="submit">Logout</button>
+  </form>
+
+  <!-- Create group button -->
+  <form action="/create-group" method="get">
+    <button type="submit">Create Group</button>
+  </form>
+  <body>
+    <!-- group.ejs -->
+    <ul>
+      <% studyGroups.forEach(group => { %>
+      <li>
+        <%= group.name %>
+        <form action="/join-group/<%= group.id %>" method="post">
+          <button type="submit">Join Group</button>
+        </form>
+      </li>
+      <% }); %>
+    </ul>
+
+    <script>
+      // Check if the URL contains a logout query parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const logoutSuccess = urlParams.get("logout");
+      if (logoutSuccess) {
+        alert("Logout successful");
+      }
+    </script>
+  </body>
+</html>
